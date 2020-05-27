@@ -1,7 +1,8 @@
 # Docket-Outlook-Automation
 Reads everyday outlook mail from a particular sender. Update if there's a update in a case we are interested in e.g. Protective Order
-CheckThings:
-Create an excel file with name datetime-key-email.xlsx
+
+ CheckThings:
+ Create an excel file with name datetime-key-email.xlsx
 1. Read email
 2. Read email from inbox
 3. Read email from particular user
