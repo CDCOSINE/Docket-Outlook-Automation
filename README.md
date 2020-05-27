@@ -10,12 +10,12 @@ Create an excel file with name datetime-key-email.xlsx
 6. If entry matches searched keyword update in excel
 7. Extract date from docket entry
 8. Multiple Keywords
+9. Added date range dacility
 
 
 To add:
 1. Or , And statements in multiple keyword searches
-2. Date range to read email
-3. Pdf reading from docket update link
+2. Pdf reading from docket update link
 
 Major:
 UI add from python easy UI or pysimGUI
