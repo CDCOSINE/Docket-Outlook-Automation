@@ -9,6 +9,7 @@ Created on Wed Apr 22 12:02:58 2020
 import win32com.client
 #from colorama import Fore
 from termcolor import colored
+import dateutil.parser as dparser
 import openpyxl
 import datetime
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
@@ -26,6 +27,7 @@ wb["Sheet1"]['A'+str(2)] = 'Campaign'
 wb["Sheet1"]['B'+str(2)] = 'Docket Update'
 wb["Sheet1"]['C'+str(2)] = 'Campaign Link'
 wb["Sheet1"]['D'+str(2)] = 'Docket Link'
+wb["Sheet1"]['E'+str(2)] = 'Docket Date extracted from Docket Text'
 wb.save('C:/Users/Lumenci 3/Desktop/'+dt+key+add+'.xlsx')
 messages = inbox.Items
 found = ""
@@ -57,6 +59,8 @@ for i in range(length-1,-1,-1):
                             #lastlink = "No link attached"
                     if key in lin:
                         found = str(lin)
+                        
+                        print("dat ", dat)
                         print("######################")
                         print("Campaign: ",lastcamp)
                         print("keyword: ",found)
@@ -70,6 +74,11 @@ for i in range(length-1,-1,-1):
                         try:
                             l1 = found.split("<")[1].split(">")[0]
                             sheet['D'+str(k)] = l1
+                        except:
+                            print('00')
+                        try:
+                            dat = str(dparser.parse(found,fuzzy=True))
+                            sheet['E'+str(k)] = dat
                         except:
                             print('00')
                         k = k+1
