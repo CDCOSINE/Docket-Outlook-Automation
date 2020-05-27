@@ -15,6 +15,14 @@ import datetime
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
 add = input("Enter email address to Look for ")
 stringk = input("Enter keyword ")
+startyear = int(input("Enter start year"))
+endyear = int(input("Enter end year"))
+startmonth = int(input("Enter start month"))
+endmonth = int(input("Enter END month"))
+dtstart = int(input("Enter start date"))
+dtend = int(input("Enter end date"))
+datestamp1 = datetime.date(startyear,startmonth,dtstart)
+datestamp2 = datetime.date(endyear,endmonth,dtend)
 key = stringk.split(",")
 inbox = outlook.GetDefaultFolder(6)
 
@@ -39,9 +47,8 @@ print("Yes")
 sheet = work["Sheet1"]
 k = 3
 for i in range(length-1,-1,-1):
-    
     print(datetime.date.today())
-    if messages[i].Class == 43 and messages[i].senton.date()==datetime.date.today():
+    if messages[i].Class == 43 and messages[i].senton.date()>=datestamp1 and messages[i].senton.date()<=datestamp2:
         try:
 
             a=messages[i].Sender.GetExchangeUser().PrimarySmtpAddress
