@@ -8,6 +8,7 @@ Create an excel file with name datetime-key-email.xlsx
 4. Read keyword
 5. Within an email keep updating Campaign Name reading line by line
 6. If entry matches searched keyword update in excel
+7. Extract date from docket entry
 
 
 To add:
