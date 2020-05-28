@@ -12,11 +12,11 @@ Reads everyday outlook mail from a particular sender. Update if there's a update
 7. Extract date from docket entry
 8. Multiple Keywords
 9. Added date range dacility
+10. PDF reading ongoing
 
 
 To add:
 1. Or , And statements in multiple keyword searches
-2. Pdf reading from docket update link
 
 Major:
 UI add from python easy UI or pysimGUI
