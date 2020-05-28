@@ -98,9 +98,10 @@ for i in range(length-1,-1,-1):
     print(datetime.date.today())
     if messages[i].Class == 43 and messages[i].senton.date()>=start and messages[i].senton.date()<=end:
         try:
-
             a=messages[i].Sender.GetExchangeUser().PrimarySmtpAddress
-            if add.lower() in a.lower():
+        except:     
+            a=messages[i].SenderEmailAddress
+        if add.lower() in a.lower():
                 print("add, started---------------------------------")
                 liness = messages[i].body.lower().split("\n")
                 lastcamp = ""
@@ -110,10 +111,6 @@ for i in range(length-1,-1,-1):
                         print("")
                         lis = str(lin).split("<")
                         lastcamp =  lis[0].split(": ")[1]
-                        #try:
-                            #lastlink = list[1]
-                        #except:
-                            #lastlink = "No link attached"
                     for keyyy in key:
                         if keyyy in lin:
                             found = str(lin)
@@ -142,14 +139,5 @@ for i in range(length-1,-1,-1):
                             print("######################")
                         
                     print("Over---------------------------------")
-                    #kk = messages[i]
-                
-                    #print(colored(kk,'blue'))
-                    
-                    #print(colored(messages[i].body,'blue'))
-        
-        except:
-            #print("www",messages[i].SenderEmailAddress)
-            print(colored("Sender's Type Unknown: ",'red'),messages[i].Sender)
-            #print('Class: ',messages[i].Sender)
+print(desktop+"/" +dt+stringk+add+ ".xlsx")
 work.save(desktop+"/" +dt+stringk+add+ ".xlsx")
