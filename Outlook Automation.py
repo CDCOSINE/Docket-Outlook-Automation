@@ -13,7 +13,9 @@ import dateutil.parser as dparser
 import openpyxl
 import datetime
 
-
+import os
+desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
+print(desktop)
 
 
 
@@ -44,7 +46,7 @@ layout = [  [sg.Text('Docket-Outlook-Automation')],
             [sg.Text('Enter Start Year'), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')] ]
 
-window = sg.Window('Window Title', layout)
+window = sg.Window('Docket-Outlook-Automation', layout)
 a,b = window.read()
 sty = int(b[0])
 eny = int(b[1])
@@ -84,11 +86,11 @@ wb["Sheet1"]['C'+str(2)] = 'Docket Update'
 wb["Sheet1"]['D'+str(2)] = 'Campaign Link'
 wb["Sheet1"]['E'+str(2)] = 'Docket Link'
 wb["Sheet1"]['F'+str(2)] = 'Docket Date extracted from Docket Text'
-wb.save('C:/Users/Lumenci 3/Desktop/'+dt+stringk+add+'.xlsx')
+wb.save(desktop+"/" +dt+stringk+add+ ".xlsx")
 messages = inbox.Items
 found = ""
 length=len(messages)
-work = openpyxl.load_workbook('C:/Users/Lumenci 3/Desktop/'+dt+stringk+add+'.xlsx')
+work = openpyxl.load_workbook(desktop+"/" +dt+stringk+add+ ".xlsx")
 print("Yes")
 sheet = work["Sheet1"]
 k = 3
@@ -150,4 +152,4 @@ for i in range(length-1,-1,-1):
             #print("www",messages[i].SenderEmailAddress)
             print(colored("Sender's Type Unknown: ",'red'),messages[i].Sender)
             #print('Class: ',messages[i].Sender)
-work.save('C:/Users/Lumenci 3/Desktop/'+dt+stringk+add+'.xlsx')
+work.save(desktop+"/" +dt+stringk+add+ ".xlsx")
