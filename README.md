@@ -14,7 +14,8 @@ Reads everyday outlook mail from a particular sender. Update if there's a update
 8. Multiple Keywords
 9. Added date range dacility
 10. PDF reading ongoing
+11. Keywords with comma(,) as OR.
 
 
 To add:
-1. Or , And statements in multiple keyword searches
+1. Hybrid or-And statements in multiple keyword searches
