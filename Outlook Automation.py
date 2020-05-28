@@ -12,17 +12,63 @@ from termcolor import colored
 import dateutil.parser as dparser
 import openpyxl
 import datetime
+
+
+
+
+
+import PySimpleGUI as sg
+
+
+
+
+sg.theme('DarkAmber')   
+layout1 = [[sg.Text('Enter Email/Name to look'),sg.InputText()],
+            [sg.Text('Enter keywords seprated by Comma'),sg.InputText()],
+            [sg.Button('Ok')] ]
+
+window = sg.Window('Docket-Outlook-Automation',layout1)
+a,b = window.read()
+emaill = str(b[0])
+keywordslist = str(b[1])
+print('Email',emaill)
+print('Keyword',keywordslist)
+window.close()
+
+layout = [  [sg.Text('Docket-Outlook-Automation')],
+            [sg.Text('Enter Start Year'), sg.InputText()],
+            [sg.Text('Enter End Year'), sg.InputText()],
+            [sg.Text('Enter Start Month'), sg.InputText()],
+            [sg.Text('Enter End Month'), sg.InputText()],
+            [sg.Text('Enter Start Date'), sg.InputText()],
+            [sg.Text('Enter Start Year'), sg.InputText()],
+            [sg.Button('Ok'), sg.Button('Cancel')] ]
+
+window = sg.Window('Window Title', layout)
+a,b = window.read()
+sty = int(b[0])
+eny = int(b[1])
+stm = int(b[2])
+enm = int(b[3])
+std = int(b[4])
+edt = int(b[5])
+start = datetime.date(sty,stm,std)
+end = datetime.date(eny,enm,edt)
+print("startt ",start)
+print("end",end)
+window.close()
+
+
+
+
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
-add = input("Enter email address to Look for ")
-stringk = input("Enter keyword ")
-startyear = int(input("Enter start year"))
-endyear = int(input("Enter end year"))
-startmonth = int(input("Enter start month"))
-endmonth = int(input("Enter END month"))
-dtstart = int(input("Enter start date"))
-dtend = int(input("Enter end date"))
-datestamp1 = datetime.date(startyear,startmonth,dtstart)
-datestamp2 = datetime.date(endyear,endmonth,dtend)
+add = emaill
+stringk = keywordslist
+#
+#dtstart = int(input("Enter start date"))
+#dtend = int(input("Enter end date"))
+#datestamp1 = datetime.date(startyear,startmonth,dtstart)
+#datestamp2 = datetime.date(endyear,endmonth,dtend)
 key = stringk.split(",")
 inbox = outlook.GetDefaultFolder(6)
 
@@ -48,7 +94,7 @@ sheet = work["Sheet1"]
 k = 3
 for i in range(length-1,-1,-1):
     print(datetime.date.today())
-    if messages[i].Class == 43 and messages[i].senton.date()>=datestamp1 and messages[i].senton.date()<=datestamp2:
+    if messages[i].Class == 43 and messages[i].senton.date()>=start and messages[i].senton.date()<=end:
         try:
 
             a=messages[i].Sender.GetExchangeUser().PrimarySmtpAddress
