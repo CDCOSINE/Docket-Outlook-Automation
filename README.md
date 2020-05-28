@@ -18,6 +18,3 @@ Reads everyday outlook mail from a particular sender. Update if there's a update
 
 To add:
 1. Or , And statements in multiple keyword searches
-
-Major:
-UI add from python easy UI or pysimGUI
