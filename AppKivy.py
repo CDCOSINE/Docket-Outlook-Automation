@@ -66,7 +66,7 @@ class InfoPage(GridLayout):
         self.join = Button(text="Submit")
         #self.join.bind(on_press = self.joinbutton)
         self.add_widget(self.join)
-class TestApp(App,**arg):
+class TestApp(App):
     def build(self):
         self.screen_manager = ScreenManager()
         
@@ -80,8 +80,6 @@ class TestApp(App,**arg):
         screen2.add_widget(self.info_page)
         self.screen_manager.add_widget(screen2)
         
-        self.screen_manager
-
         return self.screen_manager
 
 
