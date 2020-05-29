@@ -5,7 +5,7 @@ Reads everyday outlook mail from a particular sender. Update if there's a update
 
  CheckThings:
  Create an excel file with name datetime-key-email.xlsx
- # ADDED PYSIMPLEGUI UI
+ ### ADDED PYSIMPLEGUI UI
 1. Read email
 2. Read email from inbox
 3. Read email from particular user
