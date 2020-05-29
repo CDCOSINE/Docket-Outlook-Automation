@@ -86,5 +86,5 @@ class TestApp(App,**arg):
 
 
 if __name__ == "__main__":
-    kapp = TestApp(emm,kwd)
+    kapp = TestApp()
     kapp.run()
