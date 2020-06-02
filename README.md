@@ -14,10 +14,14 @@ Reads everyday outlook mail from a particular sender. Update if there's a update
 6. If entry matches searched keyword update in excel
 7. Extract date from docket entry
 8. Multiple Keywords
-9. Added date range dacility
+9. Added date range facility
 10. PDF reading ongoing
 11. Keywords with comma(,) as OR.
+12. Extraction of Hyperlinks
+13. Extraction of Docket Date
+14. KIVY UI
 
 
 To add:
-1. Hybrid or-And statements in multiple keyword searches
+1. Kivy UI integration
+2. Hybrid or-And statements in multiple keyword searches
