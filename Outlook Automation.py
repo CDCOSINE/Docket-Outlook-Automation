@@ -7,8 +7,6 @@ Created on Wed Apr 22 12:02:58 2020
 
 
 import win32com.client
-#from colorama import Fore
-from termcolor import colored
 import dateutil.parser as dparser
 import openpyxl
 import datetime
@@ -141,3 +139,8 @@ for i in range(length-1,-1,-1):
                     print("Over---------------------------------")
 print(desktop+"/" +dt+stringk+add+ ".xlsx")
 work.save(desktop+"/" +dt+stringk+add+ ".xlsx")
+sg.theme('DarkAmber')   
+layoutt = [[sg.Text('Process Over')]]
+window = sg.Window('Docket-Outlook-Automation',layoutt)
+a = window.read()
+window.close()
