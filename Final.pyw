@@ -297,7 +297,7 @@ for i in range(length-1,-1,-1):
                                 print('...',end=' ')
                             sheet['F'+str(k)] = messages[i].subject
                             k = k+1
-print('------------------------------------OVER-----------------------------------')
+print(63*'-'+'OVER'+63*'-')
 
                       
 aa= window.read()
